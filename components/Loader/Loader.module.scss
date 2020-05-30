@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+}
+.loader:after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid $main-color;
+  border-color: $main-color transparent $main-color transparent;
+  animation: loader 1.2s linear infinite;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

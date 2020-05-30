@@ -1,0 +1,63 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.hamburger {
+  border: none;
+  outline: none;
+  background: none;
+  margin-right: 10px;
+  cursor: pointer;
+
+  @include mobile {
+    margin-right: 0;
+  }
+}
+
+.hamburgerIcon {
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+
+  span {
+    display: inline-block;
+    height: 4px;
+    margin: 3px 0;
+    background: black;
+    border-radius: 2px;
+  }
+}
+
+.closeIcon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+
+  span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 4px;
+    background: black;
+    border-radius: 2px;
+
+    &:first-of-type {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:last-of-type {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

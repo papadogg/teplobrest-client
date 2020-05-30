@@ -1,0 +1,92 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.wrapper {
+  h1 {
+    font-size: 24px;
+    @include mobile {
+      padding: 20px 0;
+    }
+  }
+
+  .fieldsWrapper {
+    margin: 25px 0;
+    padding: 25px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+
+    > div {
+      margin: 20px 0;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    @include mobile {
+      padding: 10px;
+      margin: 10px 0;
+      > div {
+        margin: 10px 0;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: red;
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+
+  label {
+    display: inline-block;
+    margin-right: 50px;
+    margin-top: 10px;
+    width: 100px;
+  }
+
+  input,
+  textarea {
+    outline: none;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    padding: 10px 15px;
+    width: 500px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+
+  button {
+    margin-left: auto;
+
+    @include mobile {
+      margin: 20px auto;
+    }
+  }
+}
+
+.success {
+  text-align: center;
+  margin: 100px;
+  font-size: 20px;
+  line-height: 30px;
+
+  @include mobile {
+    margin: 200px 0;
+  }
+}

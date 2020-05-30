@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.wrapper {
+  border-bottom: 1px solid $border-color;
+  overflow: hidden;
+  padding-top: 10px;
+  @include mobile {
+    padding: 10px 0;
+  }
+}
+
+.list {
+  display: flex;
+  overflow-x: auto;
+}
+
+.item {
+  margin: 10px;
+  &:hover a {
+    color: $main-color;
+  }
+}
+
+.activeMain {
+  padding-bottom: 5px;
+  border-bottom: 2px solid $main-color;
+}
+
+.activeSecondary {
+  a {
+    color: $main-color;
+  }
+}

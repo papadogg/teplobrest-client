@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.menuWrapper {
+  display: none;
+  z-index: 2;
+  @include mobile {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+}
+
+.menu {
+  background: white;
+  a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    margin: 0 10px;
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(#{$header-height} + 2px);
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 8px $border-color;
+
+    li {
+      border-bottom: 1px solid $border-color;
+      display: flex;
+      background: white;
+
+      a {
+        width: 100%;
+        background: white;
+        padding: 10px 20px;
+        margin: 0;
+        outline: none;
+
+        &:active,
+        &:hover,
+        &:focus {
+          background: $main-color-transparent;
+        }
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.homeLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+  color: $main-color;
+
+  img {
+    width: 48px;
+    margin-right: 10px;
+  }
+}

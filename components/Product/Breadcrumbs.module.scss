@@ -1,0 +1,40 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.wrapper {
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  .list {
+    display: flex;
+
+    @include mobile {
+      overflow-x: auto;
+      line-height: 40px;
+    }
+  }
+
+  li {
+    margin: 0 10px;
+    position: relative;
+    a {
+      font-size: 14px;
+      color: gray;
+    }
+
+    &:after {
+      content: '-';
+      color: gray;
+      position: absolute;
+      right: -15px;
+    }
+    &:last-child:after {
+      content: '';
+    }
+
+    @include mobile {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+}
