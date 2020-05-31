@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "prod": "next start",
-    "start": "pm2 start"
+    "prod": "node client.js",
+    "start": "pm2 start client.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
+    "express": "^4.17.1",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "isomorphic-unfetch": "^3.0.0",
