@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useMutation } from '@apollo/react-hooks';
 
 import Layout from '../Layout';
-import Button from '../Button';
+import { Button } from '../UI';
 import withApollo from '../../apollo';
 import { REMOVE_FROM_CART, INCREASE, DECREASE } from '../../apollo/query';
 
@@ -29,7 +29,7 @@ const Cart = ({ items }) => {
     });
   };
   const totalSum = items.reduce((acc, cur) => {
-    return acc + cur.count * cur.product.promoPrice;
+    return acc + cur.count * cur.product.promoPriceRub;
   }, 0);
   return (
     <Layout>
@@ -55,9 +55,9 @@ const Cart = ({ items }) => {
                     <p className={styles.name}>{product.name}</p>
                   </div>
                   <div className={styles.price}>
-                    <span>{product.promoPrice} руб</span>
-                    {product.promoPrice < product.price && (
-                      <span>{product.price} руб</span>
+                    <span>{product.promoPriceRub} руб</span>
+                    {product.promoPriceRub < product.priceRub && (
+                      <span>{product.priceRub} руб</span>
                     )}
                   </div>
                   <div className={styles.count}>
@@ -66,7 +66,7 @@ const Cart = ({ items }) => {
                     <button onClick={() => increaseCount(product.id)}>+</button>
                   </div>
                   <div className={styles.total}>
-                    {product.promoPrice * count} руб
+                    {product.promoPriceRub * count} руб
                   </div>
                   <div className={styles.deleteBtn}>
                     <button onClick={() => deleteItem(product.id)}>X</button>

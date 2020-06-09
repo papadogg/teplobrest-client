@@ -31,18 +31,18 @@ const MobileMenu = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
-              <a className={styles.homeLink}>Монтаж</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
+            <Link href="/delivery">
               <a className={styles.homeLink}>Доставка</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/payment">
               <a className={styles.homeLink}>Оплата</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a className={styles.homeLink}>О нас</a>
             </Link>
           </li>
         </ul>

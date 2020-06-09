@@ -14,9 +14,10 @@ const Breadcrumbs = ({ categories }) => {
           <li key={category.key}>
             <Link
               href="/catalog/[...slug]"
-              as={`/catalog/${
-                categories[i - 1] ? categories[i - 1].key + '/' : ''
-              }${category.key}`}
+              as={`/catalog/${categories
+                .map((c) => c.key)
+                .slice(0, i + 1)
+                .join('/')}`}
             >
               <a>{category.name}</a>
             </Link>

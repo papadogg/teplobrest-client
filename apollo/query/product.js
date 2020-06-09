@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const GET_PRODUCTS = gql`
-  query getProducts($from: Int, $to: Int, $slug: String) {
-    getProducts(from: $from, to: $to, slug: $slug) {
+  query getProducts($from: Int, $to: Int, $slug: String, $brand: String) {
+    getProducts(from: $from, to: $to, slug: $slug, brand: $brand) {
       products {
         id
         name
@@ -17,14 +17,12 @@ export const GET_PRODUCTS = gql`
           name
           key
         }
-        price
-        promoPrice
+        priceRub
+        promoPriceRub
         description
-        seoTitle
-        seoDescription
         availability
         images {
-          big
+          medium
           small
         }
         attributes {
@@ -58,14 +56,12 @@ export const GET_PRODUCT = gql`
         name
         key
       }
-      price
-      promoPrice
+      priceRub
+      promoPriceRub
       description
-      seoTitle
-      seoDescription
       availability
       images {
-        big
+        medium
         small
       }
       attributes {
@@ -76,6 +72,15 @@ export const GET_PRODUCT = gql`
           unit
         }
         value
+      }
+      relatedProducts {
+        name
+        slug
+        attribute {
+          name
+          unit
+          value
+        }
       }
     }
   }

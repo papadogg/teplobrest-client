@@ -31,10 +31,17 @@
   position: relative;
   text-decoration: none;
   border-radius: 2px;
-  img {
-    max-width: 100%;
-    width: auto;
+  height: 500px;
+  padding-top: 30px;
+
+  @include small {
+    height: 400px;
   }
+
+  @include mobile {
+    height: 320px;
+  }
+
   &::before {
     content: '';
     display: block;
@@ -57,10 +64,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 400px;
 
   @include small {
-    height: 400px;
+    height: 300px;
   }
 }
 

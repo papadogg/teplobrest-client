@@ -4,7 +4,7 @@ import qs from 'query-string';
 
 import Layout from '../../components/Layout';
 import ProductListing from '../../components/ProductListing';
-import Pagination from '../../components/Pagination';
+import { Pagination } from '../../components/UI';
 import Categories from '../../components/Categories';
 import withApollo from '../../apollo';
 import { GET_PRODUCTS, GET_CATEGORIES } from '../../apollo/query';
@@ -17,6 +17,7 @@ const Catalog = () => {
     page = 1,
     pagesize = INITIAL_PAGE_SIZE,
     slug = undefined,
+    brand,
   } = router.query;
 
   const from = page === 1 ? 0 : page * pagesize - pagesize;
@@ -27,6 +28,7 @@ const Catalog = () => {
     {
       variables: {
         slug: slug ? slug.join('/') + '/' : undefined,
+        brand,
         from,
         to,
       },

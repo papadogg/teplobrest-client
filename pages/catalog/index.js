@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import Layout from '../../components/Layout';
 import ProductListing from '../../components/ProductListing';
-import Pagination from '../../components/Pagination';
+import { Pagination } from '../../components/UI';
 import Categories from '../../components/Categories';
 import withApollo from '../../apollo';
 import { GET_PRODUCTS, GET_CATEGORIES } from '../../apollo/query';

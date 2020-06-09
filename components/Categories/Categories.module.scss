@@ -13,6 +13,7 @@
 .list {
   display: flex;
   overflow-x: auto;
+  min-height: 38px;
 }
 
 .item {

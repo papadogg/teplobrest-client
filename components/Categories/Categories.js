@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -22,29 +23,37 @@ const prepareCategories = (categories = []) => {
   return topCategories;
 };
 
-const renderSecondary = (slug, topCategories) => {
+const renderSecondary = (slug, topCategories, index) => {
   if (!slug) return null;
-  const secondary = topCategories.find((c) => c.key === slug[0]);
+  const secondary = topCategories.find((c) => c.key === slug[index]);
+  if (!secondary || !secondary.categories) return null;
   return (
-    <ul className={styles.list}>
-      {secondary &&
-        secondary.categories &&
-        secondary.categories.map((category) => (
-          <li
-            className={`${styles.item} ${
-              slug && slug.includes(category.key) ? styles.activeSecondary : ''
-            }`}
-            key={category.id}
-          >
-            <Link
-              href="/catalog/[...slug]"
-              as={`/catalog/${secondary.key}/${category.key}`}
+    <Fragment>
+      <ul className={styles.list}>
+        {secondary &&
+          secondary.categories &&
+          secondary.categories.map((category) => (
+            <li
+              className={`${styles.item} ${
+                slug && slug.includes(category.key)
+                  ? styles.activeSecondary
+                  : ''
+              }`}
+              key={category.id}
             >
-              <a>{category.name}</a>
-            </Link>
-          </li>
-        ))}
-    </ul>
+              <Link
+                href="/catalog/[...slug]"
+                as={`/catalog/${slug.slice(0, index + 1).join('/')}/${
+                  category.key
+                }`}
+              >
+                <a>{category.name}</a>
+              </Link>
+            </li>
+          ))}
+      </ul>
+      {renderSecondary(slug, secondary.categories, 1)}
+    </Fragment>
   );
 };
 
@@ -71,7 +80,7 @@ const Categories = ({ categories }) => {
           </li>
         ))}
       </ul>
-      {renderSecondary(slug, topCategories)}
+      {renderSecondary(slug, topCategories, 0)}
     </div>
   );
 };

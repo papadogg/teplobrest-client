@@ -6,8 +6,8 @@ export const GET_CART_ITEMS = gql`
       product {
         id
         name
-        price
-        promoPrice
+        priceRub
+        promoPriceRub
         images {
           small
         }

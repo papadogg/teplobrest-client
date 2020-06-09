@@ -1,0 +1,108 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.wrapper {
+  height: 90vh;
+  position: relative;
+
+  @include mobile {
+    height: 50vh;
+  }
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: -120px;
+  right: -120px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: fadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 18s;
+  display: flex;
+
+  @include mobile {
+    left: -20px;
+    right: -20px;
+  }
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  left: -120px;
+  right: -120px;
+  height: 100%;
+  animation: scaleAnimation;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 18s;
+
+  @include mobile {
+    left: -20px;
+    right: -20px;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  94% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(0);
+  }
+  94% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.banner:nth-of-type(1) {
+  animation-delay: 12s;
+  background-image: url('../../public/asd1.jpg');
+}
+.banner:nth-of-type(2) {
+  animation-delay: 6s;
+  background-image: url('../../public/asd2.jpg');
+}
+.banner:nth-of-type(3) {
+  animation-delay: 0s;
+  background-image: url('../../public/asd3.jpg');
+}
+
+.link:nth-of-type(1) {
+  animation-delay: 12s;
+}
+.link:nth-of-type(2) {
+  animation-delay: 6s;
+}
+.link:nth-of-type(3) {
+  animation-delay: 0s;
+}

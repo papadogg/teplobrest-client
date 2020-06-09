@@ -19,18 +19,18 @@ const Menu = () => {
           </Link>
         </li>
         <li>
-          <Link href="/">
-            <a>Монтаж</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
+          <Link href="/delivery">
             <a>Доставка</a>
           </Link>
         </li>
         <li>
           <Link href="/payment">
             <a>Оплата</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
+            <a>О нас</a>
           </Link>
         </li>
         <CartItem />

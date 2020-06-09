@@ -8,7 +8,7 @@
   align-items: center;
   padding-top: 10px;
   width: 100%;
-  height: 320px;
+  height: 330px;
 
   @include mobile {
     height: auto;
@@ -23,7 +23,8 @@
   }
 
   img {
-    max-height: 200px;
+    height: 200px;
+    display: block;
   }
 
   .info {
@@ -49,8 +50,25 @@
     }
   }
 
-  h4 {
-    color: $dark-color;
+  .price {
+    display: flex;
+    align-items: center;
+    padding: 10px;
     margin-top: 10px;
+    span {
+      display: inline-block;
+    }
+  }
+
+  .newPrice {
+    color: $dark-color;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .oldPrice {
+    color: gray;
+    text-decoration: line-through;
+    margin-left: 10px;
   }
 }

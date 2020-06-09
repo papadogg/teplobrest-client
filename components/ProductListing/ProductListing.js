@@ -1,5 +1,5 @@
 import ProductItem from './ProductItem';
-import Loader from '../../components/Loader';
+import { Loader } from '../../components/UI';
 
 import styles from './ProductListing.module.scss';
 

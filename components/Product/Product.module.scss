@@ -35,6 +35,37 @@
   img {
     max-width: 100%;
     max-height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.imagesPreview {
+  margin-top: 20px;
+  display: flex;
+  width: 400px;
+  overflow-x: hidden;
+
+  img {
+    width: 100px;
+    padding: 0 5px;
+    cursor: pointer;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  @include mobile {
+    margin-bottom: 30px;
+    width: 100%;
+
+    img {
+      width: 25%;
+    }
   }
 }
 
@@ -70,6 +101,27 @@
   }
 }
 
+.relatedProducts {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin: 10px 10px 10px 0;
+
+      &.active {
+        a {
+          color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+.addToCart {
+  margin-top: 20px;
+}
+
 .description {
   margin-top: 100px;
   border-top: 2px solid $border-color;
@@ -91,11 +143,11 @@
   li {
     margin: 15px 0;
     padding: 15px;
-    width: 500px;
+    width: 700px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &:nth-child(2) {
+    &:nth-child(2n) {
       background-color: $border-color;
     }
     span:last-of-type {
@@ -103,6 +155,23 @@
     }
     @include mobile {
       width: 100%;
+
+      span:first-of-type {
+        width: 70%;
+      }
+
+      span:last-of-type {
+        width: 30%;
+        text-align: center;
+      }
     }
+  }
+}
+
+.empty {
+  margin: 150px;
+  text-align: center;
+  @include mobile {
+    margin: 150px 0;
   }
 }
