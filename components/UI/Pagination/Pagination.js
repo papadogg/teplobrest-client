@@ -22,7 +22,6 @@ const Pagination = ({ total, onPageChange, activePage = 1 }) => {
         &#10092;
       </li>
       {totalArray.map((item, i) => {
-        let display = 'flex';
         switch (true) {
           case i === 0 || i === totalArray.length - 1:
             break;
@@ -30,34 +29,21 @@ const Pagination = ({ total, onPageChange, activePage = 1 }) => {
             if (Math.abs(i - activePage) > 2) {
               break;
             } else {
-              display = 'none';
+              return;
             }
           case Math.abs(i - activePage) > 1:
-            display = 'none';
-            break;
+            return;
           default:
             break;
         }
         if (item === 'dots') {
-          return (
-            <li
-              style={{
-                display,
-              }}
-              className={styles.dots}
-            >
-              ...
-            </li>
-          );
+          return <li className={styles.dots}>...</li>;
         }
         const pageNumber = item + 1;
 
         return (
           <li
             key={item}
-            style={{
-              display,
-            }}
             onClick={() => onPageChange(pageNumber)}
             className={`${styles.item} ${
               pageNumber === Number(activePage) ? styles.active : ''
